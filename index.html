@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ↓↓↓ 改浏览器标签页标题 ↓↓↓ -->
+  <title>Anfu's World · 个人作品集</title>
+  <meta name="description" content="尹浩怡（Anfu）的个人作品集 —— Welcome to my world!">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <!-- 手写风字体（已下载到本地，不依赖 Google 服务器，离线也能显示） -->
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css?v=12">
+</head>
+<body data-page="home">
+
+  <!-- 背景装饰（固定在最底层，不用改） -->
+  <div class="bg-decor" aria-hidden="true"></div>
+  <div class="bg-grain" aria-hidden="true"></div>
+
+  <!-- ========== 顶部固定导航栏（每个页面相同） ========== -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="logo" href="index.html">✿ Anfu<span class="logo-sub">'s world</span></a>
+      <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="siteNav">
+        <a href="index.html" data-nav="home">首页</a>
+        <a href="works.html" data-nav="works">作品展示</a>
+        <a href="about.html" data-nav="about">关于我</a>
+        <a href="contact.html" data-nav="contact">联系我</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== 首屏 Hero ========== -->
+    <section class="hero container">
+      <div class="hero-text">
+        <!-- 这些文字由 js/profile-data.js 提供，也可在「管理内容」页里改 -->
+        <span class="hello reveal">✏️ Hi! u can call me <b>&nbsp;<span data-bind="home.nameTag">_Anfu_</span></b></span>
+        <!-- 最显眼的一句话简介 -->
+        <h1 class="reveal" data-delay="80">
+          <span class="hl hl-yellow" data-bind="home.hiWord">Welcome</span> to my
+          <span class="hl hl-blue" data-bind="home.worldWord">world</span>！
+        </h1>
+        <p class="tagline reveal" data-delay="140" data-bind="home.subline">Here’s my resume.</p>
+        <!-- 简短自我介绍 -->
+        <p class="hero-desc reveal" data-delay="200" data-bind="home.desc">
+          我是尹浩怡（Anfu），一个喜欢画画和创作的小女孩。
+          这里收藏着我的小画、奇思妙想和会动的小故事，随便逛，慢慢看 ♡
+        </p>
+        <!-- 跳转其他页面的导航按钮 -->
+        <div class="hero-actions reveal" data-delay="260">
+          <a class="btn btn-yellow" href="works.html">🎨 看看作品</a>
+          <a class="btn btn-blue" href="about.html">🌷 关于我</a>
+          <a class="btn btn-green" href="contact.html">✉️ 联系我</a>
+        </div>
+      </div>
+
+      <!-- 右侧拍立得拼贴（图片可换成你喜欢的作品，改 src 即可） -->
+      <div class="hero-visual reveal" data-delay="200">
+        <div class="polaroid polaroid-1">
+          <img src="assets/works/illust-3.png" alt="花园小猫">
+          <span>meow~</span>
+        </div>
+        <div class="polaroid polaroid-2">
+          <img src="assets/works/illust-2.png" alt="月亮晚安">
+          <span>good night</span>
+        </div>
+        <div class="polaroid polaroid-3">
+          <img src="assets/works/illust-6.png" alt="彩虹与云">
+          <span>lucky day</span>
+        </div>
+        <!-- 手绘小太阳 / 小爱心涂鸦：点一下会有蹦跳 + 气泡 + 粒子小彩蛋 -->
+        <span class="doodle doodle-1 hero-doodle" data-buddy="sun"
+              data-talk="元气满满！" data-spark="☀️,✨,🌟" aria-hidden="true">
+          <svg viewBox="0 0 40 40">
+            <circle cx="20" cy="20" r="9.5" fill="#f6d365" stroke="#56566a" stroke-width="2"/>
+            <g stroke="#56566a" stroke-width="2" stroke-linecap="round">
+              <path d="M20 4.5 L20 8"/><path d="M20 32 L20 35.5"/>
+              <path d="M4.5 20 L8 20"/><path d="M32 20 L35.5 20"/>
+              <path d="M9 9 L11.4 11.4"/><path d="M28.6 28.6 L31 31"/>
+              <path d="M31 9 L28.6 11.4"/><path d="M11.4 28.6 L9 31"/>
+            </g>
+            <circle cx="17" cy="18.6" r="1.5" fill="#56566a"/>
+            <circle cx="23" cy="18.6" r="1.5" fill="#56566a"/>
+            <path d="M17.6 22.6 Q20 24.8 22.4 22.6" fill="none" stroke="#56566a" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="14.6" cy="21.4" r="1.7" fill="#f0aeb8" opacity=".75"/>
+            <circle cx="25.4" cy="21.4" r="1.7" fill="#f0aeb8" opacity=".75"/>
+          </svg>
+        </span>
+        <span class="doodle doodle-2 hero-doodle" data-buddy="heart"
+              data-talk="喜欢你 ♡" data-spark="💜,💖,✨" aria-hidden="true">
+          <svg viewBox="0 0 40 40">
+            <path d="M20 34 C10 27 4 20.5 4 14.5 C4 9.5 8 6 12.5 6 C16 6 18.8 8 20 10.8 C21.2 8 24 6 27.5 6 C32 6 36 9.5 36 14.5 C36 20.5 30 27 20 34 Z"
+                  fill="#bda7e0" stroke="#56566a" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="16" cy="15.5" r="1.5" fill="#56566a"/>
+            <circle cx="24" cy="15.5" r="1.5" fill="#56566a"/>
+            <path d="M17.4 19.4 Q20 21.8 22.6 19.4" fill="none" stroke="#56566a" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="13.4" cy="17.8" r="1.7" fill="#fadadd" opacity=".9"/>
+            <circle cx="26.6" cy="17.8" r="1.7" fill="#fadadd" opacity=".9"/>
+            <path d="M27.5 9.5 Q29.5 8.6 30.6 10" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" opacity=".8"/>
+          </svg>
+        </span>
+      </div>
+    </section>
+
+    <!-- ========== 简短自我介绍 ========== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">about me</span>
+          <h2>简单认识一下</h2>
+          <span class="wave"></span>
+        </div>
+        <div class="about-mini">
+          <div class="mini-photo reveal">
+            <!-- 首页“简单认识一下”的照片（assets/anfu-photo.jpg，替换此文件即可换图） -->
+            <img src="assets/anfu-photo.jpg" alt="Anfu 的照片">
+          </div>
+          <div class="sketch-card reveal" data-delay="120">
+            <h3 data-bind="home.miniTitle">我是尹浩怡，也可以叫我 Anfu ～</h3>
+            <p data-bind="home.miniBio.0">
+              非常擅长绘画，学过素描、水彩和油画（<b>油画最擅长</b>！）。
+              平时脑子里会冒出很多奇奇怪怪的创意画面，
+              也会产出一些同人 / 原创作品（非常低产呃……）、meme 和短视频素材。
+            </p>
+            <p data-bind="home.miniBio.1">更多内容可以在作品页慢慢 appreciate ♡</p>
+            <div class="chip-row">
+              <span class="chip">🎨 油画</span>
+              <span class="chip">💧 水彩</span>
+              <span class="chip">✏️ 素描</span>
+              <span class="chip">💡 创意构思</span>
+              <span class="chip">🎬 短视频 / meme</span>
+            </div>
+            <p style="margin-top:22px">
+              <a class="btn btn-purple btn-sm" href="about.html">了解更多关于我 →</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 首页精选作品（自动读取 js/works-data.js 里前三张） ========== -->
+    <section class="section" style="padding-top:20px">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">recent works</span>
+          <h2>最近的小画</h2>
+          <span class="wave"></span>
+        </div>
+        <!-- 卡片由 main.js 自动生成，不用手写 -->
+        <div class="grid-3" id="featuredGrid"></div>
+        <p style="text-align:center;margin-top:34px" class="reveal">
+          <a class="btn btn-yellow" href="works.html">查看全部作品 →</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== 页脚 ========== -->
+  <footer class="site-footer">
+    <div class="container">
+      <nav class="foot-nav">
+        <a href="index.html">首页</a>
+        <a href="works.html">作品展示</a>
+        <a href="about.html">关于我</a>
+        <a href="contact.html">联系我</a>
+      </nav>
+      <p>© <span id="year">2026</span> <span data-bind="footer.name">Anfu（尹浩怡）</span> · 用 <span style="color:#f0aeb8">♡</span> 画出来的小世界
+        <a class="foot-edit" href="editor.html" title="仅自己使用：管理作品与文字">· ✎ 管理内容</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- 每个页面都有的 🔙 返回按钮 -->
+  <button class="back-fab" id="backBtn" aria-label="返回上一页">
+    🔙<span class="back-tip">返回上一页</span>
+  </button>
+
+  <!-- 内容仓库 + 文字数据 + 作品数据 + 交互脚本（顺序不要换） -->
+  <script src="js/content-store.js?v=12"></script>
+  <script src="js/profile-data.js?v=12"></script>
+  <script src="js/works-data.js?v=12"></script>
+  <script src="js/main.js?v=12"></script>
+</body>
+</html>

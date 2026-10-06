@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于我 · Anfu's World</title>
+  <meta name="description" content="关于尹浩怡（Anfu）：绘画、创意与软件技能">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <!-- 手写风字体（已下载到本地，不依赖 Google 服务器，离线也能显示） -->
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css?v=12">
+</head>
+<body data-page="about">
+
+  <div class="bg-decor" aria-hidden="true"></div>
+  <div class="bg-grain" aria-hidden="true"></div>
+
+  <!-- ========== 顶部固定导航栏 ========== -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="logo" href="index.html">✿ Anfu<span class="logo-sub">'s world</span></a>
+      <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="siteNav">
+        <a href="index.html" data-nav="home">首页</a>
+        <a href="works.html" data-nav="works">作品展示</a>
+        <a href="about.html" data-nav="about">关于我</a>
+        <a href="contact.html" data-nav="contact">联系我</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ========== 个人简介大卡片 ========== -->
+    <section style="padding:30px 0 10px">
+      <div class="about-hero reveal">
+        <!-- 头像：替换 assets/anfu-photo.jpg 即可换图 -->
+        <div class="avatar-box">
+          <img src="assets/anfu-photo.jpg" alt="尹浩怡 Anfu 的头像">
+        </div>
+        <div>
+          <h1 data-bind="about.name">我是尹浩怡</h1>
+          <p class="en" data-bind="about.en">You can call me Anfu ♡</p>
+          <div class="chip-row" style="margin:14px 0 4px">
+            <span class="chip">🎨 画画的</span>
+            <span class="chip">💡 爱做白日梦的</span>
+            <span class="chip">🎬 剪点小东西的</span>
+          </div>
+          <!-- 个人简介：由 js/profile-data.js 提供，也可在「管理内容」页修改 -->
+          <p class="bio" data-bind="about.bio.0">
+            一个喜欢创作的小女孩，非常擅长绘画，学过素描、水彩、油画（<b>这个最擅长！</b>）。
+            喜欢构思创意画面，有产出一些同人 / 原创的东西（非常低产呃……），
+            也有做 meme 和短视频素材的经验。
+          </p>
+          <p class="bio" data-bind="about.bio.1">稍后可以在作品集中慢慢 appreciate ～</p>
+          <p style="margin-top:18px">
+            <a class="btn btn-yellow btn-sm" href="works.html">去看作品 →</a>
+            <a class="btn btn-blue btn-sm" href="contact.html" style="margin-left:8px">联系我 →</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 我会做什么 ========== -->
+    <section class="section">
+      <div class="section-head reveal">
+        <span class="kicker">what I do</span>
+        <h2>我会做什么</h2>
+        <span class="wave"></span>
+      </div>
+      <div class="ability-grid">
+        <div class="ability-card reveal">
+          <div class="ico" style="background:var(--yellow)">🎨</div>
+          <h3>油画 <small style="font-family:var(--font-body);font-size:13px;color:#fff;background:var(--pink-d);border:1.5px solid var(--ink);border-radius:999px;padding:1px 8px">最擅长</small></h3>
+          <p>最拿手的材料，最喜欢颜料层层叠叠的质感。</p>
+        </div>
+        <div class="ability-card reveal" data-delay="70">
+          <div class="ico" style="background:var(--blue)">💧</div>
+          <h3>水彩</h3>
+          <p>透明、轻盈，水渍和晕染就是小魔法。</p>
+        </div>
+        <div class="ability-card reveal" data-delay="140">
+          <div class="ico" style="background:var(--purple)">✏️</div>
+          <h3>素描</h3>
+          <p>画面的基本功，黑白灰里也有很多乐趣。</p>
+        </div>
+        <div class="ability-card reveal">
+          <div class="ico" style="background:var(--green)">💡</div>
+          <h3>创意构思</h3>
+          <p>脑子里经常上演小剧场，喜欢把怪想法画出来。</p>
+        </div>
+        <div class="ability-card reveal" data-delay="70">
+          <div class="ico" style="background:var(--pink)">🌙</div>
+          <h3>同人 / 原创</h3>
+          <p>用爱发电，虽然非常低产，但每一张都是真心。</p>
+        </div>
+        <div class="ability-card reveal" data-delay="140">
+          <div class="ico" style="background:var(--yellow)">🎬</div>
+          <h3>Meme &amp; 短视频素材</h3>
+          <p>会画画也会剪点会动的、好玩的小东西。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 软件技能清单 ========== -->
+    <section class="section" style="padding-top:10px">
+      <div class="section-head reveal">
+        <span class="kicker">my tools</span>
+        <h2>掌握的软件技能</h2>
+        <span class="wave"></span>
+      </div>
+      <!-- 技能清单由 js/profile-data.js 自动渲染；
+           增删技能请到「管理内容」页（页脚 ✎ 入口），也可以直接改 profile-data.js -->
+      <div class="skill-list reveal" id="skillList"></div>
+    </section>
+
+    <!-- 小标语 -->
+    <p class="quote-strip reveal" data-bind="about.quote">Stay creative, stay weird ✨</p>
+
+  </main>
+
+  <!-- ========== 页脚 ========== -->
+  <footer class="site-footer">
+    <div class="container">
+      <nav class="foot-nav">
+        <a href="index.html">首页</a>
+        <a href="works.html">作品展示</a>
+        <a href="about.html">关于我</a>
+        <a href="contact.html">联系我</a>
+      </nav>
+      <p>© <span id="year">2026</span> <span data-bind="footer.name">Anfu（尹浩怡）</span> · 用 <span style="color:#f0aeb8">♡</span> 画出来的小世界
+        <a class="foot-edit" href="editor.html" title="仅自己使用：管理作品与文字">· ✎ 管理内容</a>
+      </p>
+    </div>
+  </footer>
+
+  <button class="back-fab" id="backBtn" aria-label="返回上一页">
+    🔙<span class="back-tip">返回上一页</span>
+  </button>
+
+  <script src="js/content-store.js?v=12"></script>
+  <script src="js/profile-data.js?v=12"></script>
+  <script src="js/works-data.js?v=12"></script>
+  <script src="js/main.js?v=12"></script>
+</body>
+</html>

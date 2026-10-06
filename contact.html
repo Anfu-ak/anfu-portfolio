@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>联系我 · Anfu's World</title>
+  <meta name="description" content="联系尹浩怡（Anfu）：邮箱与 QQ">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <!-- 手写风字体（已下载到本地，不依赖 Google 服务器，离线也能显示） -->
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css?v=12">
+</head>
+<body data-page="contact">
+
+  <div class="bg-decor" aria-hidden="true"></div>
+  <div class="bg-grain" aria-hidden="true"></div>
+
+  <!-- ========== 顶部固定导航栏 ========== -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="logo" href="index.html">✿ Anfu<span class="logo-sub">'s world</span></a>
+      <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="siteNav">
+        <a href="index.html" data-nav="home">首页</a>
+        <a href="works.html" data-nav="works">作品展示</a>
+        <a href="about.html" data-nav="about">关于我</a>
+        <a href="contact.html" data-nav="contact">联系我</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="page-banner reveal" style="padding-top:40px">
+      <span class="kicker">say hi</span>
+      <h1>联系我呀 ～</h1>
+      <p data-bind="contact.intro">如有疑问或需求，请发邮件联系我。</p>
+    </div>
+
+    <div class="contact-wrap" style="padding:24px 0 30px">
+
+      <!-- 邮箱卡片（常用）：改邮箱只改两处 —— mailto 链接和 strong 里的文字（data-copy 也要同步） -->
+      <div class="contact-card reveal">
+        <div class="contact-ico" style="background:var(--yellow)">
+          <svg viewBox="0 0 48 48" width="32" aria-hidden="true">
+            <rect x="6" y="12" width="36" height="25" rx="5" fill="#fff" stroke="#56566a" stroke-width="2.5"/>
+            <path d="M8 16 L24 28 L40 16" fill="none" stroke="#56566a" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="contact-main">
+          <small>邮箱（常用）</small>
+          <strong data-bind="contact.email">1614909865@qq.com</strong>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-yellow btn-sm" href="mailto:1614909865@qq.com"
+             data-bind-href="contact.email" data-href-prefix="mailto:">发邮件</a>
+          <button class="btn btn-sm" data-copy="1614909865@qq.com"
+                  data-bind-copy="contact.email" type="button">复制</button>
+        </div>
+      </div>
+
+      <!-- QQ 卡片：改号码同理 -->
+      <div class="contact-card reveal" data-delay="90">
+        <div class="contact-ico" style="background:var(--blue)">
+          <svg viewBox="0 0 48 48" width="32" aria-hidden="true">
+            <path d="M24 8 C13 8 8 16 8 24 C8 28.5 10.5 32 14 34 L11 40 L18 37 C20 37.4 22 37.6 24 37.6 C35 37.6 40 29.6 40 21.6 C40 16 35 8 24 8 Z"
+                  fill="#fff" stroke="#56566a" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="18" cy="21" r="2.4" fill="#56566a"/>
+            <circle cx="30" cy="21" r="2.4" fill="#56566a"/>
+            <path d="M19 27 Q24 31 29 27" fill="none" stroke="#56566a" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="contact-main">
+          <small>QQ</small>
+          <strong data-bind="contact.qq">1614909865</strong>
+        </div>
+        <div class="contact-actions">
+          <button class="btn btn-blue btn-sm" data-copy="1614909865"
+                  data-bind-copy="contact.qq" type="button">复制</button>
+        </div>
+      </div>
+
+      <p class="contact-note reveal" data-delay="160" data-bind="contact.note">看到消息会尽快回复你～ ♡</p>
+
+      <p style="text-align:center" class="reveal" data-delay="220">
+        <a class="btn btn-green" href="mailto:1614909865@qq.com"
+           data-bind-href="contact.email" data-href-prefix="mailto:">✉️ 写一封邮件给 Anfu</a>
+      </p>
+    </div>
+
+  </main>
+
+  <!-- ========== 页脚 ========== -->
+  <footer class="site-footer">
+    <div class="container">
+      <nav class="foot-nav">
+        <a href="index.html">首页</a>
+        <a href="works.html">作品展示</a>
+        <a href="about.html">关于我</a>
+        <a href="contact.html">联系我</a>
+      </nav>
+      <p>© <span id="year">2026</span> <span data-bind="footer.name">Anfu（尹浩怡）</span> · 用 <span style="color:#f0aeb8">♡</span> 画出来的小世界
+        <a class="foot-edit" href="editor.html" title="仅自己使用：管理作品与文字">· ✎ 管理内容</a>
+      </p>
+    </div>
+  </footer>
+
+  <button class="back-fab" id="backBtn" aria-label="返回上一页">
+    🔙<span class="back-tip">返回上一页</span>
+  </button>
+
+  <script src="js/content-store.js?v=12"></script>
+  <script src="js/profile-data.js?v=12"></script>
+  <script src="js/works-data.js?v=12"></script>
+  <script src="js/main.js?v=12"></script>
+</body>
+</html>

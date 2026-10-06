@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理内容 · Anfu's World</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <!-- 手写风字体（已下载到本地，不依赖 Google 服务器，离线也能显示） -->
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css?v=12">
+</head>
+<body data-page="editor">
+
+  <div class="bg-decor" aria-hidden="true"></div>
+  <div class="bg-grain" aria-hidden="true"></div>
+
+  <!-- 顶部条 -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="logo" href="index.html">✿ Anfu<span class="logo-sub">'s world</span></a>
+      <nav class="site-nav" id="siteNav" style="display:flex">
+        <a href="index.html">← 回首页</a>
+        <a href="works.html" target="_blank">作品页 ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container editor-wrap">
+
+    <!-- 说明横幅 -->
+    <div class="page-banner" style="padding:30px 0 10px">
+      <span class="kicker">studio</span>
+      <h1>✎ 管理内容</h1>
+      <p>在这里添加作品、修改文字，改动会<b>自动保存在这个浏览器</b>里，前台立刻生效。<br>
+         想永久保存 / 换电脑 / 部署上线时，到「导出与保存」下载新文件替换即可。</p>
+    </div>
+
+    <!-- 标签页按钮 -->
+    <div class="ed-tabs">
+      <button class="ed-tab is-active" data-tab="works">🎨 作品管理</button>
+      <button class="ed-tab" data-tab="text">📝 个人文字</button>
+      <button class="ed-tab" data-tab="export">💾 导出与保存</button>
+      <span class="ed-savestatus" id="saveStatus"></span>
+    </div>
+
+    <!-- ================= 标签页 1：作品管理 ================= -->
+    <section class="ed-panel is-active" id="panel-works">
+      <div class="ed-toolbar">
+        <button class="btn btn-yellow" id="btnAddImage">＋ 添加插画作品</button>
+        <button class="btn btn-purple" id="btnAddVideo">＋ 添加短视频作品</button>
+        <span class="ed-tip">提示：作品按这里的顺序展示；首页自动取前三张插画。</span>
+      </div>
+      <div id="workEditorList" class="ed-worklist"></div>
+      <p id="workEmptyTip" class="empty-tip" hidden>还没有作品，点上面的按钮添加第一个吧～</p>
+    </section>
+
+    <!-- ================= 标签页 2：个人文字 ================= -->
+    <section class="ed-panel" id="panel-text" hidden>
+
+      <div class="ed-card">
+        <h3 class="ed-card-title">🏠 首页文字</h3>
+        <label class="ed-field"><span>问候名字</span>
+          <input type="text" data-profile="home.nameTag"></label>
+        <label class="ed-field"><span>大标题高亮词 1</span>
+          <input type="text" data-profile="home.hiWord"></label>
+        <label class="ed-field"><span>大标题高亮词 2</span>
+          <input type="text" data-profile="home.worldWord"></label>
+        <label class="ed-field"><span>一句话简介</span>
+          <input type="text" data-profile="home.subline"></label>
+        <label class="ed-field ed-full"><span>首页自我介绍</span>
+          <textarea rows="3" data-profile="home.desc"></textarea></label>
+        <label class="ed-field ed-full"><span>首页小卡片标题</span>
+          <input type="text" data-profile="home.miniTitle"></label>
+        <label class="ed-field ed-full"><span>首页小卡片 · 第 1 段</span>
+          <textarea rows="3" data-profile="home.miniBio.0"></textarea></label>
+        <label class="ed-field ed-full"><span>首页小卡片 · 第 2 段</span>
+          <textarea rows="2" data-profile="home.miniBio.1"></textarea></label>
+      </div>
+
+      <div class="ed-card">
+        <h3 class="ed-card-title">🌷 关于我</h3>
+        <label class="ed-field"><span>名字标题</span>
+          <input type="text" data-profile="about.name"></label>
+        <label class="ed-field"><span>英文名 / 称呼</span>
+          <input type="text" data-profile="about.en"></label>
+        <label class="ed-field ed-full"><span>个人简介 · 第 1 段</span>
+          <textarea rows="4" data-profile="about.bio.0"></textarea></label>
+        <label class="ed-field ed-full"><span>个人简介 · 第 2 段</span>
+          <textarea rows="2" data-profile="about.bio.1"></textarea></label>
+        <label class="ed-field ed-full"><span>底部小标语</span>
+          <input type="text" data-profile="about.quote"></label>
+      </div>
+
+      <div class="ed-card">
+        <h3 class="ed-card-title">🧰 软件技能</h3>
+        <p class="ed-tip" style="margin:0 0 12px">角标：无 / ♡ 本命（粉色）/ 学习 ing（淡紫）</p>
+        <div id="skillEditorList" class="ed-skilllist"></div>
+        <button class="btn btn-green btn-sm" id="btnAddSkill" type="button">＋ 添加技能</button>
+      </div>
+
+      <div class="ed-card">
+        <h3 class="ed-card-title">✉️ 联系方式 &amp; 页脚</h3>
+        <label class="ed-field"><span>联系页提示语</span>
+          <input type="text" data-profile="contact.intro"></label>
+        <label class="ed-field"><span>邮箱</span>
+          <input type="text" data-profile="contact.email"></label>
+        <label class="ed-field"><span>QQ</span>
+          <input type="text" data-profile="contact.qq"></label>
+        <label class="ed-field ed-full"><span>联系页小尾巴</span>
+          <input type="text" data-profile="contact.note"></label>
+        <label class="ed-field ed-full"><span>页脚署名</span>
+          <input type="text" data-profile="footer.name"></label>
+      </div>
+    </section>
+
+    <!-- ================= 标签页 3：导出与保存 ================= -->
+    <section class="ed-panel" id="panel-export" hidden>
+      <div class="ed-card">
+        <h3 class="ed-card-title">📌 当前状态</h3>
+        <ul class="ed-status" id="exportStatus"></ul>
+      </div>
+
+      <div class="ed-card">
+        <h3 class="ed-card-title">💾 导出永久文件（重要）</h3>
+        <p class="ed-step">
+          <b>第 1 步</b>：点下面的按钮下载文件（如果添加过新图片，浏览器会连续下载多个文件，
+          若弹出“此网站尝试下载多个文件”请选择「允许」）。
+        </p>
+        <div class="ed-export-btns">
+          <button class="btn btn-yellow" id="btnExportWorks">⬇ 下载作品文件 works-data.js</button>
+          <button class="btn btn-blue" id="btnDownloadImgs">⬇ 下载新图片（<span id="pendingImgCount">0</span> 张）</button>
+          <button class="btn btn-green" id="btnExportProfile">⬇ 下载文字文件 profile-data.js</button>
+        </div>
+        <p class="ed-step">
+          <b>第 2 步</b>：把下载的 <b>works-data.js、profile-data.js</b> 放回项目的
+          <b>js/</b> 文件夹（替换旧文件）；把 <b>PNG 图片</b>放进
+          <b>assets/works/</b> 文件夹（<b>文件名不要改</b>，要和网站里引用的一致）。
+        </p>
+        <p class="ed-step">
+          <b>第 3 步</b>：刷新页面确认效果。以后把整个文件夹发给别人 / 上传部署，内容就都在啦。
+        </p>
+        <p class="ed-tip">小知识：本地保存只存在当前浏览器里，清理浏览器数据会丢失，所以重要改动记得导出备份。</p>
+      </div>
+
+      <div class="ed-card">
+        <h3 class="ed-card-title">🧹 恢复默认</h3>
+        <p class="ed-tip" style="margin-top:0">清空这个浏览器里保存的修改，回到 js 文件里的原始内容（不影响已导出的文件）。</p>
+        <div class="ed-export-btns">
+          <button class="btn btn-sm" id="btnResetWorks">恢复作品为默认</button>
+          <button class="btn btn-sm" id="btnResetProfile">恢复文字为默认</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 轻提示 -->
+  <div class="ed-toast" id="toast" role="status"></div>
+
+  <button class="back-fab" id="backBtn" aria-label="返回上一页">
+    🔙<span class="back-tip">返回上一页</span>
+  </button>
+
+  <script src="js/content-store.js?v=12"></script>
+  <script src="js/profile-data.js?v=12"></script>
+  <script src="js/works-data.js?v=12"></script>
+  <script src="js/editor.js?v=12"></script>
+</body>
+</html>
